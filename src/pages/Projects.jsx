@@ -61,15 +61,8 @@ export default function Work() {
 
       .work-title {
         font-size: 3rem;
-        font-weight: 400;
+        font-weight: 400; /* Se elimina la negrita */
         margin-bottom: 0.5rem;
-      }
-
-      .work-number {
-        font-size: 1.8rem;
-        margin-bottom: 2rem;
-        color: #000;
-        font-weight: 400;
       }
 
       .work-list {
@@ -86,15 +79,18 @@ export default function Work() {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: rgba(255, 255, 255, 0.6);
-        border: 1px solid rgba(0, 0, 0, 0.2);
+        background-color: #fff;
+        border: 1px solid #007bff;
         transition: transform 0.3s ease;
         font-weight: 400;
-        color: #000;
+        color: #007bff; /* Color azul */
+        text-decoration: none;
+        cursor: pointer;
       }
 
       .work-item:hover {
         transform: scale(1.03);
+        border: 2px solid #0056b3; /* Sombra en el borde */
       }
 
       .icon {
@@ -104,10 +100,6 @@ export default function Work() {
       @media (min-width: 1024px) {
         .work-title {
           font-size: 3.5rem;
-        }
-
-        .work-number {
-          font-size: 2rem;
         }
 
         .work-item {
@@ -129,21 +121,33 @@ export default function Work() {
                 <h1 className='work-title'>PROJECTS</h1>
 
                 <div className='work-list'>
-                    <div className='work-item'>
+                    <a
+                        href='https://github.com/Lay72/RICK-MORTY.git'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className='work-item'>
                         <span>R_M</span>
                         <span>API</span>
-                    </div>
-                    <div className='work-item'>
+                    </a>
+                    <a
+                        href='https://github.com/Lay72/FORMS-CLONE.git'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className='work-item'>
                         <span>FORMS CLONE</span>
                         <span>HTML</span>
-                    </div>
-                    <div className='work-item'>
+                    </a>
+                    <a
+                        href='https://github.com/Lay72/PATHFINDER.git'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className='work-item'>
                         <span>
                             <i className='fas fa-arrow-right icon'></i>
                             PATHFINDER
                         </span>
                         <span>REACT</span>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
