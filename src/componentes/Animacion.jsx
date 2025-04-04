@@ -1,13 +1,14 @@
 import { useEffect } from 'react';
 import { useSpring, animated } from '@react-spring/web';
+import fondo from '../assets/fondo.png';
 
 // Calcular el desplazamiento en X y Y
 const calc = (x, y) => [window.innerWidth / 2 - x, window.innerHeight / 2 - y];
 
 // Transformar las coordenadas para animar la imagen
-const trans = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
+const trans = (x, y) => `translate3d(${x / 20}px,${y / 20}px,0) scale(1.2)`;
 
-const Animacion = () => {
+const Animacion = ({ children }) => {
     // Usar useSpring para animar el movimiento
     const [props, set] = useSpring(() => ({
         xy: [0, 0], // Estado inicial
@@ -27,22 +28,16 @@ const Animacion = () => {
     }, [set]);
 
     return (
-        <animated.div
-            style={{
-                backgroundImage: "url('/fondo.png')", // Ruta de la imagen
-                backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat',
-                height: '100vh',
-                width: '100vw',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                transform: props.xy.to(trans), // Aplicar la transformación
-                zIndex: -1, // Asegurarse de que la imagen esté detrás del contenido
-                willChange: 'transform', // Mejora el rendimiento
-                pointerEvents: 'none', // Evita que el div capture eventos del mouse
-            }}
-        />
+        <div className='wave-container'>
+            <animated.img
+                className='wave'
+                src={fondo}
+                style={{
+                    transform: props.xy.to(trans), // Aplicar la transformación
+                }}
+            />
+            {children}
+        </div>
     );
 };
 
